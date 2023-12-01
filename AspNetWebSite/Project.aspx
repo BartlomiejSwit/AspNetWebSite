@@ -43,6 +43,7 @@
                     <asp:Button runat="server" ID="CalBt9" Text="9" OnClick="CalBt9_Click" />
                     <br />
                     <asp:Button runat="server" ID="CalBt0" Text="0" OnClick="CalBt0_Click" />
+                    <asp:Button runat="server" ID="CalBtDot" Text="," OnClick="CalBtDot_Click" />
                     <br />
                     <asp:Button runat="server" ID="CalBtPlus" Text="+" OnClick="CalBtPlus_Click" />
                     <asp:Button runat="server" ID="CalBtMinus" Text="-" OnClick="CalBtMinus_Click" />

@@ -142,5 +142,10 @@ namespace AspNetWebSite
         {
             TxEqual.Text = "";
         }
+
+        protected void CalBtDot_Click(object sender, EventArgs e)
+        {
+            TxEqual.Text += CalBtDot.Text;
+        }
     }
 }
