@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="Project" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Project.aspx.cs" Inherits="AspNetWebSite.Project" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main aria-labelledby="title">
+    <main aria-labelledby="title"></main>
         <h2 id="title"><%: Title %>.</h2>
         <h3>Strona na testy projektów.</h3>
+    <main />
         <br />
         <div style="display: flex; justify-content: space-between">
             <div>
