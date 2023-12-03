@@ -43,6 +43,16 @@ namespace AspNetWebSite
         {
             AlterData();
         }
+        //public int rowIndex;
+        //protected void Tabela_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    rowIndex = Tabela.SelectedIndex;
+        //}
+        //public int rowIndex;
+        //protected void Tabela_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        //{
+        //    rowIndex = e.NewSelectedIndex;
+        //}
 
 
         public class GridView
@@ -147,6 +157,26 @@ namespace AspNetWebSite
 
             }
 
+
+        }
+        public void AddData()
+        {
+            string name = txNewOffer1.Text;
+            string path = TxOfferPath.Text;
+            string ansver = TxAnsver.Text;
+            string date = TxDate.Text;
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(ansver) && !string.IsNullOrEmpty(date))
+            {
+                obj_GridView.InsertData(name, path, ansver, date);
+                txNewOffer1.Text = string.Empty;
+                TxOfferPath.Text = string.Empty;
+                TxAnsver.Text = string.Empty;
+                TxDate.Text = string.Empty;
+            }
+            else
+            {
+
+            }
 
         }
         public void AddData()
