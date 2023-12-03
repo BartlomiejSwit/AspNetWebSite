@@ -81,6 +81,7 @@
             </Columns>
         </asp:GridView>
     </div>
+
     <%--ID="Tabela" runat="server" AutoGenerateColumns="false" SelectedIndex="0" OnSelectedIndexChanged="Tabela_SelectedIndexChanged" DataKeyNames="OfferId">--%>
     <%--ID="Tabela" runat="server" AutoGenerateColumns="false" SelectedIndex="0" OnSelectedIndexChanging="Tabela_SelectedIndexChanging" DataKeyNames="OfferId" ClientIDMode="AutoID">--%>
 
@@ -96,4 +97,5 @@
                     <autopostbackflags rowselectionchanged="True" />
                 </ig:selection>
             </behaviors>--%>
+
 </asp:Content>
