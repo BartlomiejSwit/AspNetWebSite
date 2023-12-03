@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
         <h2 id="title"><%: Title %>.</h2>
-        <h3>Strona za testy projektów.</h3>
+        <h3>Strona na testy projektów.</h3>
         <br />
         <div style="display: flex; justify-content: space-between">
             <div>
@@ -17,11 +17,11 @@
             <div style="display: flex; justify-content: space-between">
 
                 <div>
-                    <asp:TextBox runat="server" ID="TextBoxHidden1" />
+                    <asp:TextBox runat="server" ID="TextBoxHidden1" Visible="false" />
                     <br />
-                    <asp:TextBox runat="server" ID="TextBoxHidden2" />
+                    <asp:TextBox runat="server" ID="TextBoxHidden2" Visible="false"/>
                     <br />
-                    <asp:TextBox runat="server" ID="TextBoxOperations" />
+                    <asp:TextBox runat="server" ID="TextBoxOperations" Visible="false"/>
                 </div>
                 <div>
                     <h5>Kalkulator</h5>
