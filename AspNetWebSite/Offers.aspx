@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="Offers" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Offers.aspx.cs" Inherits="AspNetWebSite.Offers" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <main aria-labelledby="title">
+    <main aria-labelledby="title"></main>
         <h2 id="title"><%: Title %>.</h2>
         <h3>Oferty pracy już aplikowane.</h3>
         <p></p>
-    </main>
+    <main />
     <div>
 
         <div style="display: flex; justify-content: space-between">
@@ -73,10 +73,10 @@
                 <asp:BoundField DataField="Answer" HeaderText="Answer" FooterStyle-HorizontalAlign="Center" ItemStyle-Width="100" />
                 <asp:BoundField DataField="Data" HeaderText="Data" FooterStyle-HorizontalAlign="Center" ItemStyle-Width="80" />
                 <asp:TemplateField HeaderText="Actions">
-                    <ItemTemplate>
+<%--                    <ItemTemplate>
                         <asp:LinkButton ID="EditButton" runat="server" Text="Edytuj" CommandName="Edit" OnClick="Bt4_Click" />
                         <asp:LinkButton ID="DeleteButton" runat="server" Text="Usuń" CommandName="Delete" OnClick="Bt3_Click" />
-                    </ItemTemplate>
+                    </ItemTemplate>--%>
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>

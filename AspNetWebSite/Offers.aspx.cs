@@ -63,73 +63,84 @@ namespace AspNetWebSite
                 cstring = ConfigurationManager.ConnectionStrings["myConnectionString"].ToString();
                 return cstring;
             }
+
+
             public DataTable GetData()
             {
-                SqlConnection connection = null;
-                SqlCommand command = null;
-                SqlDataAdapter adapter = null;
                 DataTable dataTable = null;
-
-                using (connection = new SqlConnection(ConnectionString()))
+                using (SqlConnection connection = new SqlConnection(ConnectionString()))
                 {
-                    command = connection.CreateCommand();
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.CommandText = "TakeData";
-                    adapter = new SqlDataAdapter(command);
-                    dataTable = new DataTable();
-                    adapter.Fill(dataTable);
+                    connection.Open();
+                    string query = "Select OfferId, Name, path, Answer, Data From dbo.Oferty_pracy Order by Data";
+                                        
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        command.ExecuteNonQuery();
+                        dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+                    }
+
                 }
+
                 return dataTable;
             }
+
             public void InsertData(string param1, string param2, string param3, string param4)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString()))
                 {
-                    using (SqlCommand command = new SqlCommand("InsertData", connection))
+                    connection.Open();
+
+                    string query = "INSERT INTO Oferty_pracy (Name, path, Answer, Data) VALUES (@param1, @param2, @param3, @param4)";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@param1", param1);
                         command.Parameters.AddWithValue("@param2", param2);
                         command.Parameters.AddWithValue("@param3", param3);
                         command.Parameters.AddWithValue("@param4", param4);
 
-                        connection.Open();
                         command.ExecuteNonQuery();
                     }
                 }
             }
+
             public void DeleteData(int id)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString()))
                 {
-                    using (SqlCommand command = new SqlCommand("DeleteData", connection))
+                    connection.Open();
+                    string query = "DELETE FROM Oferty_pracy WHERE OfferId = @id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@id", id);
 
-                        connection.Open();
                         command.ExecuteNonQuery();
                     }
+
                 }
             }
+
             public void EditData(int id, string param1, string param2, string param3, string param4)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString()))
                 {
-                    using (SqlCommand command = new SqlCommand("EditData", connection))
+                    connection.Open ();
+                    string query = "Update Oferty_pracy Set Name = @param1, path = @param2, Answer = @param3, Data = @param4 where OfferId = @id";
+                    using (SqlCommand command = new SqlCommand (query, connection))
                     {
-                        command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@id", id);
                         command.Parameters.AddWithValue("@param1", param1);
                         command.Parameters.AddWithValue("@param2", param2);
                         command.Parameters.AddWithValue("@param3", param3);
                         command.Parameters.AddWithValue("@param4", param4);
 
-                        connection.Open();
                         command.ExecuteNonQuery();
                     }
                 }
             }
+
 
         }
 
